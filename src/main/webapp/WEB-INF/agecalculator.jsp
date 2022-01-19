@@ -16,9 +16,9 @@
         
         <form action="age" method="post">
             <label for="age">Enter your age:</label>
-            <input type="number" name="age" id="age">
-            <button type="submit">Submit</button>
+            <input type="number" name="age" id="age"><br>
+            <button type="submit">Age next birthday</button>
         </form>
-        ${message};
+        <p>${message}</p>
     </body>
 </html>
