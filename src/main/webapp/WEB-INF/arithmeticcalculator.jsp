@@ -1,0 +1,28 @@
+<%-- 
+    Document   : arithmeticcalculator
+    Created on : 18-Jan-2022, 10:26:37 PM
+    Author     : Alexander Yee
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Arithmetic Calculator</h1>
+        <form action="arithmetic">
+            <label for="firstNum">First: </label>
+            <input type="number" name="firstNum" id="firstNum"><br>
+            <label for="secNum">Second: </label>
+            <input type="number" name="secNum" id="secNum"><br>
+            
+            <button type="submit" name="operation">+</button>
+            <button type="submit" name="operation">-</button>
+            <button type="submit" name="operation">*</button>
+            <button type="submit" name="operation">%</button>
+        </form>
+    </body>
+</html>
