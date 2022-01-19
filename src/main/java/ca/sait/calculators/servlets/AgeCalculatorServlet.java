@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package ca.sait.calculators.servlets;
 
 import java.io.IOException;
@@ -12,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author alexa
+ * Determines the next age of the person
+ * @author Alexander Yee
  */
 public class AgeCalculatorServlet extends HttpServlet {
 
@@ -37,6 +33,15 @@ public class AgeCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        String ageInput = request.getParameter("age");
+        int age = Integer.parseInt(ageInput);
+        age++;
+      
+        String message = String.format("You will be %d after your next birtday", age);
+     
+        request.setAttribute("message", message);
+        getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+   
     }
 }
