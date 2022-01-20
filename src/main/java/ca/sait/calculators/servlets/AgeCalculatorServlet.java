@@ -39,7 +39,7 @@ public class AgeCalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-      String ageInput = request.getParameter("age");
+        String ageInput = request.getParameter("age");
         String message;
         if (ageInput != null)
         {

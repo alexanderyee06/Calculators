@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package ca.sait.calculators.servlets;
 
 import java.io.IOException;
@@ -29,8 +25,9 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("result", "---");
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
-   
+        
     }
 
     /**
@@ -44,6 +41,41 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String firstInput = request.getParameter("firstNum");
+        String secondInput = request.getParameter("secNum");
+        String message;
+        if (firstInput != null && secondInput != null)
+        {
+            try 
+            {
+                int firstNum = Integer.parseInt(firstInput);
+                int secNum = Integer.parseInt(secondInput);
+
+                if (request.getParameter("operation").equals("add"))
+                {
+                    request.setAttribute("result", firstNum + secNum); 
+                }
+                else if (request.getParameter("operation").equals("subtract"))
+                {
+                    request.setAttribute("result", firstNum - secNum); 
+                }
+                else if (request.getParameter("operation").equals("multiply"))
+                {
+                    request.setAttribute("result", firstNum * secNum); 
+                }
+                else if (request.getParameter("operation").equals("divide"))
+                {
+                    request.setAttribute("result", (double) firstNum / secNum); 
+                }
+            }
+            catch (Exception ex)
+            {
+                request.setAttribute("result", "invalid");
+            }
+        }
+
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
+
     }
 }
